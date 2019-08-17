@@ -25,6 +25,7 @@ public class Projectile : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
                 transform.Rotate(0f, 180f, 0f);
+                transform.GetChild(0).transform.Rotate(0f, 180f, 0f);
             }
         }
     }
