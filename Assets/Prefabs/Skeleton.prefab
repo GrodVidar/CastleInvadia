@@ -102,7 +102,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b993b0ef106032749b288df33e141ff8, type: 3}
-  m_Color: {r: 0.5660378, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.07690191, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -455,9 +455,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
-  item: {fileID: 0}
+  item: {fileID: 4504625814698971661, guid: 23e3627c7fa9fd54eaca21a23ecfc7cb, type: 3}
   health: 100
   bar: {fileID: 2055390035}
+  damageDisplay: {fileID: 7556441311562014576, guid: 93f15b455b198e142b253b93bf026c20,
+    type: 3}
   waypoints: []
 --- !u!61 &2837697614468748527
 BoxCollider2D:
