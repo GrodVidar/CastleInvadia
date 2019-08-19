@@ -167,6 +167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 929631303283668023, guid: ed7b60a1252ec5d4a9e2738e2e212b54,
         type: 3}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 929631303283668023, guid: ed7b60a1252ec5d4a9e2738e2e212b54,
+        type: 3}
       propertyPath: movementSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -180,6 +185,12 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 2837697614234507948}
+    - target: {fileID: 929631303283668023, guid: ed7b60a1252ec5d4a9e2738e2e212b54,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 1328344869629821839, guid: 9250c64532a73304093aff30a44921b9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b60a1252ec5d4a9e2738e2e212b54, type: 3}
 --- !u!4 &1859198821488665702 stripped
