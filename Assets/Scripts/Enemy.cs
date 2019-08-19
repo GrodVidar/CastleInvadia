@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     //Configs
     [SerializeField] float movementSpeed = 2f;
-    [SerializeField] GameObject item; 
+    [SerializeField] GameObject[] items; 
     int dmg = 10;
     [SerializeField] int health = 100;
     float healthBarDiff;
@@ -127,17 +127,35 @@ public class Enemy : MonoBehaviour
     private IEnumerator Death()
     {
         animator.SetTrigger("Death");
-        if(item && !droppedItem)
+        if(items.Length > 0 && !droppedItem)
         {
-            SpitOutItem();
-            droppedItem = true;
+            foreach(GameObject item in items)
+			{
+				if(item.name == "Heart")
+				{
+					if(player.GetIsHurt() && ((int)Random.Range(2f, 6f) % 2 == 0))
+					{
+						SpitOutItem(item); //Fixa spamspawn hearts
+					}
+					else
+					{
+						break;
+					}
+				}
+				else// if(item.name != "Heart")
+				{
+					Debug.Log(item.name);
+					SpitOutItem(item);
+				}
+				droppedItem = true;
+			}
         }
         gameObject.layer = 14;
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 
-    private void SpitOutItem()
+    private void SpitOutItem(GameObject item)
     {
         Instantiate(item, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);        
     }

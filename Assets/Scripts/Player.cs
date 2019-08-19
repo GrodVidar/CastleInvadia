@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float speed = 2f;
     [SerializeField] float jumpVel = 20f;
     int health = 100;
+	int maxHealth = 100;
     [SerializeField] float knockbackCount = 0;
 
     //state
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 
     //caches
     [SerializeField] GameObject damageDisplay;
+    [SerializeField] GameObject healDisplay;
     CapsuleCollider2D myCollider;
     BoxCollider2D feet;
     Rigidbody2D myRigidBody;
@@ -199,6 +201,9 @@ public class Player : MonoBehaviour
             case "Chest Key(Clone)":
                 SetHasChestKey(true);
                 break;
+			case "Heart(Clone)":
+				AddHealth(25);
+				break;
             default:
                 Debug.Log("PickupItem() was called with no/no known item.");
                 break;
@@ -248,4 +253,36 @@ public class Player : MonoBehaviour
         damageDisplay.GetComponent<TextMeshPro>().text = amount.ToString();
         Instantiate(damageDisplay, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
+
+
+	private void SpawnHealDisplay(int amount)
+    {
+        healDisplay.GetComponent<TextMeshPro>().text = amount.ToString();
+        Instantiate(healDisplay, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+    }
+
+	public bool GetIsHurt()
+	{
+		if(health >= maxHealth)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	private void AddHealth(int amount)
+	{
+		if(health + amount > maxHealth)
+		{
+			health = maxHealth;
+		}
+		else
+		{
+			health += amount;
+		}
+		SpawnHealDisplay(amount);
+	}
 }

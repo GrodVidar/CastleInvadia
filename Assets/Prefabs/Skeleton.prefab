@@ -455,8 +455,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
-  item: {fileID: 4504625814698971661, guid: 23e3627c7fa9fd54eaca21a23ecfc7cb, type: 3}
-  health: 100
+  items:
+  - {fileID: 4504625814698971661, guid: 23e3627c7fa9fd54eaca21a23ecfc7cb, type: 3}
+  - {fileID: 1328344869629821839, guid: 9250c64532a73304093aff30a44921b9, type: 3}
+  health: 10
   bar: {fileID: 2055390035}
   damageDisplay: {fileID: 7556441311562014576, guid: 93f15b455b198e142b253b93bf026c20,
     type: 3}
