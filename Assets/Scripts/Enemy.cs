@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     //Configs
     [SerializeField] float movementSpeed = 2f;
     [SerializeField] GameObject[] items; 
-    int dmg = 10;
+    [SerializeField] int dmg = 10;
     [SerializeField] int health = 100;
     float healthBarDiff;
     //Caches
@@ -165,4 +165,9 @@ public class Enemy : MonoBehaviour
         damageDisplay.GetComponent<TextMeshPro>().text = amount.ToString();
         Instantiate(damageDisplay, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
+
+	public bool GetIsDead()
+	{
+		return isDead;
+	}
 }
