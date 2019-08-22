@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     //configs
     [SerializeField] float speed = 2f;
     [SerializeField] float jumpVel = 20f;
-    int health = 100;
-	int maxHealth = 100;
+    //int health = 100;
+	//int maxHealth = 100;
     [SerializeField] float knockbackCount = 0;
 
     //state
@@ -30,9 +30,11 @@ public class Player : MonoBehaviour
     Animator animator;
     Transform gun;
     Weapon weapon;
+	Health health;
 
     void Start()
     {
+		health = FindObjectOfType<Health>();
         myCollider = GetComponent<CapsuleCollider2D>();
         feet = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
@@ -116,13 +118,13 @@ public class Player : MonoBehaviour
 
     public void RemoveHealth(int amount)
     {
-        health -= amount;
+		health.RemoveHealth(amount);
         SpawnDamageDisplay(amount);
-        if(health <= 0)
-        {
-            isAlive = false;
-            Death();
-        }
+        //if(health. <= 0)
+        //{
+        //    isAlive = false;
+        //    Death();
+        //}
     }
 
     private void ApplyKnockback(float knockback, bool knockedFromRight)
@@ -143,7 +145,7 @@ public class Player : MonoBehaviour
         myRigidBody.velocity = new Vector2(0, knockUp);
     }
 
-    private void Death()
+    public void Death()
     {
         //Found bug, Player "ice-skating" when dead. has to do with Rigidbody and ZeroFriction.
         SetCanShoot();
@@ -160,6 +162,7 @@ public class Player : MonoBehaviour
     {
         canShoot = !canShoot;
     }
+
     public bool GetCanShoot()
     {
         return canShoot;
@@ -181,6 +184,11 @@ public class Player : MonoBehaviour
     {
         weapon.Shoot();
     }
+
+	public void SetIsAlive(bool state)
+	{
+		isAlive = state;
+	}
 
     public bool GetIsAlive()
     {
@@ -254,35 +262,15 @@ public class Player : MonoBehaviour
         Instantiate(damageDisplay, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
-
 	private void SpawnHealDisplay(int amount)
     {
         healDisplay.GetComponent<TextMeshPro>().text = amount.ToString();
         Instantiate(healDisplay, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
-	public bool GetIsHurt()
-	{
-		if(health >= maxHealth)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-
 	private void AddHealth(int amount)
 	{
-		if(health + amount > maxHealth)
-		{
-			health = maxHealth;
-		}
-		else
-		{
-			health += amount;
-		}
+		health.AddHealth(amount);
 		SpawnHealDisplay(amount);
 	}
 }
