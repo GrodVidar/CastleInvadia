@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] int dmg = 10;
     [SerializeField] int health = 100;
     float healthBarDiff;
-    //Caches
+	//Caches
+	Health playerHealth;
     Animator animator;
     Rigidbody2D myRigidbody;
     [SerializeField] GameObject bar;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+		playerHealth = FindObjectOfType<Health>();
         hpBar = transform.Find("HealthBar");
         player = FindObjectOfType<Player>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -133,9 +135,9 @@ public class Enemy : MonoBehaviour
 			{
 				if(item.name == "Heart")
 				{
-					if(player.GetIsHurt() && ((int)Random.Range(2f, 6f) % 2 == 0))
+					if(playerHealth.IsHurt() && ((int)Random.Range(2f, 6f) % 2 == 0))
 					{
-						SpitOutItem(item); //Fixa spamspawn hearts
+						SpitOutItem(item); 
 					}
 					else
 					{
