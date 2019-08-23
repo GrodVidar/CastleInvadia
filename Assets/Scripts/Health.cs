@@ -6,18 +6,15 @@ public class Health : MonoBehaviour
 {
 	int maxHealth = 100;
 	int health = 100;
+    bool hasChanged = false;
 	RectTransform rectTransform;
 	Player player;
-
-	//private void Awake()
-	//{
-	//	Singleton();	
-	//}
 
 	private void Start()
 	{
 		player = FindObjectOfType<Player>();
 		rectTransform = GetComponent<RectTransform>();
+        health = PlayerPrefs.GetInt("PlayerHealth");
 	}
 
 	private void Update()
@@ -28,6 +25,7 @@ public class Health : MonoBehaviour
 	public void RemoveHealth(int amount)
 	{
 		health -= amount;
+        PlayerPrefs.SetInt("PlayerHealth", health);
 		if(health <= 0)
 		{
 			player.Death();
@@ -38,6 +36,7 @@ public class Health : MonoBehaviour
 	public void AddHealth(int amount)
 	{
 		health += amount;
+        PlayerPrefs.SetInt("PlayerHealth", health);
 		if(health >= maxHealth)
 		{
 			health = maxHealth;
@@ -56,15 +55,8 @@ public class Health : MonoBehaviour
 		}
 	}
 
-	private void Singleton()
-	{
-		if(FindObjectsOfType(GetType()).Length > 1)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			DontDestroyOnLoad(gameObject);
-		}
-	}
+    public void SetHealth(int hp)
+    {
+        health = hp;
+    }
 }

@@ -120,11 +120,6 @@ public class Player : MonoBehaviour
     {
 		health.RemoveHealth(amount);
         SpawnDamageDisplay(amount);
-        //if(health. <= 0)
-        //{
-        //    isAlive = false;
-        //    Death();
-        //}
     }
 
     private void ApplyKnockback(float knockback, bool knockedFromRight)
@@ -137,7 +132,6 @@ public class Player : MonoBehaviour
         {
             myRigidBody.velocity = new Vector2(knockback, knockback);
         }
-        //knockbackCount -= Time.deltaTime * 10;
     }
 
     public void ApplyKnockUp(float knockUp)
