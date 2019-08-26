@@ -19,7 +19,14 @@ public class Health : MonoBehaviour
 
 	private void Update()
 	{
-		rectTransform.localScale = new Vector2(((float)health / maxHealth), 1f);
+        if(health > 0)
+        {
+		    rectTransform.localScale = new Vector2(((float)health / maxHealth), 1f);
+        }
+        else
+        {
+            rectTransform.localScale = new Vector2(0f, 1f);
+        }
 	}
 
 	public void RemoveHealth(int amount)

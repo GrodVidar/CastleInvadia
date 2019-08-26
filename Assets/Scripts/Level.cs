@@ -10,16 +10,16 @@ public class Level : MonoBehaviour
     void Awake()
     {
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    private void Start()
-    {
-        health = FindObjectOfType<Health>();
         if(currentLevel == 0)
         {
             PlayerPrefs.SetInt("PlayerHealth", 100);
             Debug.Log(PlayerPrefs.GetInt("PlayerHealth"));
         }
+    }
+
+    private void Start()
+    {
+        health = FindObjectOfType<Health>();
     }
 
     public void LoadNextLevel()
