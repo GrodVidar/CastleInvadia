@@ -2,23 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ Weapons indexing
+ 0. Stone
+ 1. Bow
+ */
+
 public class Weapon : MonoBehaviour
 {
     [SerializeField] GameObject[] projectiles;
     [SerializeField] GameObject projectileParent;
     GameObject projectile;
     Player player;
+	Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetWeapon(0);
+        SetWeapon(PlayerPrefs.GetInt("ActiveWeapon"));
         player = FindObjectOfType<Player>();
+		inventory = FindObjectOfType<Inventory>();
     }
 
     // Update is called once per frame
     void Update()
     {
+		if (Input.GetKeyDown("1"))
+		{
+			PlayerPrefs.SetInt("ActiveWeapon", 0);
+			SetWeapon(0);
+			player.SetHasBow(false);
+			inventory.SetActiveWeapon(0);
+		}
+		else if (Input.GetKeyDown("2") && inventory.GethasBow())
+		{
+			PlayerPrefs.SetInt("ActiveWeapon", 1);
+			SetWeapon(1);
+			player.SetHasBow(true);
+			inventory.SetActiveWeapon(1);
+		}
         if(player.GetCanShoot())
         {
             if(Input.GetButtonDown("Fire1"))

@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     //caches
     [SerializeField] GameObject damageDisplay;
     [SerializeField] GameObject healDisplay;
+	Inventory inventory;
     CapsuleCollider2D myCollider;
     BoxCollider2D feet;
     Rigidbody2D myRigidBody;
@@ -34,6 +35,14 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+		if(PlayerPrefs.GetInt("ActiveWeapon") == 1)
+		{
+			hasBow = true;
+		}
+		else
+		{
+			hasBow = false;
+		}
 		health = FindObjectOfType<Health>();
         myCollider = GetComponent<CapsuleCollider2D>();
         feet = GetComponent<BoxCollider2D>();
@@ -41,6 +50,7 @@ public class Player : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         weapon = FindObjectOfType<Weapon>();
         gun = gameObject.transform.GetChild(0);
+		inventory = FindObjectOfType<Inventory>();
     }
     
     void Update()
@@ -141,7 +151,7 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        //Found bug, Player "ice-skating" when dead. has to do with Rigidbody and ZeroFriction.
+		//Found bug, Player "ice-skating" when dead. has to do with Rigidbody and ZeroFriction.
         SetCanShoot();
         animator.SetTrigger("Dead");
         gameObject.layer = 14;
@@ -195,7 +205,7 @@ public class Player : MonoBehaviour
         switch(item)
         {
             case "Bow(Clone)":
-                SetHasBow();
+				inventory.SetBowAquired();
                 break;
             case "Door Key(Clone)":
                 SetHasDoorKey(true);
@@ -212,17 +222,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetHasBow()
+    public void SetHasBow(bool setter)
     {
-        hasBow = !hasBow;
-        if(!hasBow)
-        {
-            weapon.SetWeapon(0);
-        }
-        else
-        {
-            weapon.SetWeapon(1);
-        }
+		hasBow = setter;
     }
 
     public bool GetHasBow()

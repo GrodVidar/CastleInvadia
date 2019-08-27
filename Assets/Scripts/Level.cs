@@ -13,6 +13,7 @@ public class Level : MonoBehaviour
         if(currentLevel == 0)
         {
             PlayerPrefs.SetInt("PlayerHealth", 100);
+			PlayerPrefs.SetInt("ActiveWeapon", 0);
             Debug.Log(PlayerPrefs.GetInt("PlayerHealth"));
         }
     }

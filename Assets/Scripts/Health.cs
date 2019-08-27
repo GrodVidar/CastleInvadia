@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
 	int maxHealth = 100;
 	int health = 100;
-    bool hasChanged = false;
+    //bool hasChanged = false;
 	RectTransform rectTransform;
 	Player player;
 
@@ -42,12 +42,21 @@ public class Health : MonoBehaviour
 
 	public void AddHealth(int amount)
 	{
-		health += amount;
-        PlayerPrefs.SetInt("PlayerHealth", health);
-		if(health >= maxHealth)
+		if(health + amount < maxHealth)
+		{
+			health += amount;
+		}
+		else
 		{
 			health = maxHealth;
 		}
+		PlayerPrefs.SetInt("PlayerHealth", health);
+		//health += amount;
+        //PlayerPrefs.SetInt("PlayerHealth", health);
+		//if(health >= maxHealth)
+		//{
+		//	health = maxHealth;
+		//}
 	}
 
 	public bool IsHurt()
