@@ -155,6 +155,7 @@ public class Player : MonoBehaviour
         SetCanShoot();
         animator.SetTrigger("Dead");
         gameObject.layer = 14;
+		myRigidBody.velocity = new Vector2(0f, 0f);
     }
 
     public bool GetFacingLeft()
