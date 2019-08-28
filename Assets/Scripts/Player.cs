@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
         weapon = FindObjectOfType<Weapon>();
         gun = gameObject.transform.GetChild(0);
 		inventory = FindObjectOfType<Inventory>();
+        inventory.SetKeyUnAquired();
     }
     
     void Update()
@@ -210,6 +211,7 @@ public class Player : MonoBehaviour
                 break;
             case "Door Key(Clone)":
                 SetHasDoorKey(true);
+                inventory.SetKeyAquired();
                 break;
             case "Chest Key(Clone)":
                 SetHasChestKey(true);

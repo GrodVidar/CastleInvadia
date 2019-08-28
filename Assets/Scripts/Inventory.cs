@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
 	//caches
 	[SerializeField] GameObject[] weapons;
 	[SerializeField] GameObject[] backgrounds;
+    [SerializeField] GameObject key;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class Inventory : MonoBehaviour
 		//		weapon.SetActive(false);
 		//	}
 		//}
-		backgrounds[0].SetActive(true); // sets the Stone set to active in the beginning of each scene.
+		//backgrounds[0].SetActive(true); // sets the Stone set to active in the beginning of each scene.
     }
 
     // Update is called once per frame
@@ -54,4 +55,14 @@ public class Inventory : MonoBehaviour
 		}
 		backgrounds[index].SetActive(true);
 	}
+
+    public void SetKeyAquired()
+    {
+        key.SetActive(true);
+    }
+
+    public void SetKeyUnAquired()
+    {
+        key.SetActive(false);
+    }
 }
