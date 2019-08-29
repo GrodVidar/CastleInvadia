@@ -25,14 +25,8 @@ public class Door : MonoBehaviour
         if(collision.tag == "Player" && Input.GetKeyDown("up") && player.GetHasDoorKey())
         {
             myRenderer.sprite = openDoor;
-            StartCoroutine(WaitForASecond());
+			FindObjectOfType<Level>().LoadNextLevel();
         }
-    }
-
-    private IEnumerator WaitForASecond()
-    {
-        yield return new WaitForSeconds(1);
-        FindObjectOfType<Level>().LoadNextLevel();
     }
 
 }

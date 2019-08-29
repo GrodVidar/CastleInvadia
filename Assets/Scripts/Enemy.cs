@@ -118,6 +118,8 @@ public class Enemy : MonoBehaviour
     {        
         health -= amount;
         SpawnDamageDisplay(amount);
+		if(gameObject.name == "Golem") { animator.SetTrigger("Hurt"); }		
+		myRigidbody.velocity = new Vector2(0f, 0f);
         bar.GetComponent<Transform>().localScale = new Vector3(health * healthBarDiff, 1f, 1f);
         if(health <= 0)
         {
