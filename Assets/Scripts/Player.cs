@@ -272,9 +272,4 @@ public class Player : MonoBehaviour
 		health.AddHealth(amount);
 		SpawnHealDisplay(amount);
 	}
-
-	public void SetExiting()
-	{
-		animator.SetTrigger("Exiting");
-	}
 }
