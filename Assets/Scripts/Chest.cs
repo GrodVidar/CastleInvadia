@@ -16,6 +16,14 @@ public class Chest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(activated)
+		{
+			myRenderer.sprite = open;
+		}
+		else
+		{
+			myRenderer.sprite = closed;
+		}
         
     }
 
@@ -23,7 +31,6 @@ public class Chest : MonoBehaviour
     {
         if(collision.tag == "Player" && !activated)
         {
-            myRenderer.sprite = open;
             SpitOutItem();
             activated = true;
         }
@@ -34,4 +41,9 @@ public class Chest : MonoBehaviour
         Instantiate(item, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         //item.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-50f, 50f), Random.Range(50f, 59f));
     }
+
+	public void SetActivated(bool setter)
+	{
+		activated = setter;
+	}
 }

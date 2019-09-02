@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     //caches
     [SerializeField] GameObject damageDisplay;
     [SerializeField] GameObject healDisplay;
+	[SerializeField] GameObject deathCanvas;
 	Inventory inventory;
     CapsuleCollider2D myCollider;
     BoxCollider2D feet;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
 		{
 			hasBow = false;
 		}
+		canShoot = true;
 		health = FindObjectOfType<Health>();
         myCollider = GetComponent<CapsuleCollider2D>();
         feet = GetComponent<BoxCollider2D>();
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
         gun = gameObject.transform.GetChild(0);
 		inventory = FindObjectOfType<Inventory>();
         inventory.SetKeyUnAquired();
+		deathCanvas.SetActive(false);
     }
     
     void Update()
@@ -152,10 +155,11 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-		//Found bug, Player "ice-skating" when dead. has to do with Rigidbody and ZeroFriction.
-        SetCanShoot();
+        SetCanShootFalse();
+		ActivateDeathScreen();
         animator.SetTrigger("Dead");
         gameObject.layer = 14;
+		//Time.timeScale = 0f;
 		myRigidBody.velocity = new Vector2(0f, 0f);
     }
 
@@ -167,6 +171,10 @@ public class Player : MonoBehaviour
     public void SetCanShoot()
     {
         canShoot = !canShoot;
+
+    }public void SetCanShootFalse()
+    {
+        canShoot = false;
     }
 
     public bool GetCanShoot()
@@ -271,5 +279,10 @@ public class Player : MonoBehaviour
 	{
 		health.AddHealth(amount);
 		SpawnHealDisplay(amount);
+	}
+
+	private void ActivateDeathScreen()
+	{
+		deathCanvas.SetActive(true);
 	}
 }

@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
 		}
 	}
 
-    public void SetHealth(int hp)
+    public void SetHealth(int hp = 100)
     {
         health = hp;
     }

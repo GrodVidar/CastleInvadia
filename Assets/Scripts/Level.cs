@@ -33,4 +33,11 @@ public class Level : MonoBehaviour
     {
         Application.Quit();
     }
+
+	public void ReloadLevel()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		PlayerPrefs.SetInt("PlayerHealth", 100);
+		//Time.timeScale = 1f;
+	}
 }
