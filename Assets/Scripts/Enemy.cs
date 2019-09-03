@@ -65,7 +65,10 @@ public class Enemy : MonoBehaviour
     private void Move()
     {       
         animator.SetBool("Idle", false);
-
+		if(gameObject.name == "Golem")
+		{
+			animator.SetBool("IsAttacking", false);
+		}
         transform.position = new Vector2(Mathf.MoveTowards(transform.position.x, waypoints[waypointIndex].position.x, movementSpeed * Time.deltaTime), transform.position.y);
         if(transform.position.x < waypoints[waypointIndex].transform.position.x) { isMovingRight = true; }
         else { isMovingRight = false; }
@@ -107,6 +110,10 @@ public class Enemy : MonoBehaviour
     public void SetIsAttacking()
     {
         isAttacking = !isAttacking;
+		if(gameObject.name == "Golem")
+		{
+			animator.SetBool("IsAttacking", true);
+		}
     }
 
     public void DealDamage()
