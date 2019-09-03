@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         if(currentLevel == 0)
         {
+            PlayerPrefs.SetInt("Money", 0);
             PlayerPrefs.SetInt("PlayerHealth", 100);
 			PlayerPrefs.SetInt("ActiveWeapon", 0);
             Debug.Log(PlayerPrefs.GetInt("PlayerHealth"));

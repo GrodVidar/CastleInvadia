@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
         return isAlive;
     }
 
-    public void PickupItem(string item)
+    public void PickupItem(string item, int value = 0)
     {
         Debug.Log("Picked up " + item);
         switch(item)
@@ -230,8 +230,8 @@ public class Player : MonoBehaviour
 				AddHealth(25);
 				break;
 			case "Coin(Clone)":
-				Debug.Log("+5");
-				cashDisplay.AddMoney(5);
+				Debug.Log(value);
+				cashDisplay.AddMoney(value);
 				break;
             default:
                 Debug.Log("PickupItem() was called with no/no known item.");

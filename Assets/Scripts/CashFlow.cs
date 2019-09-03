@@ -22,4 +22,14 @@ public class CashFlow : MonoBehaviour
 	{
 		money += amount;
 	}
+
+    public int GetMoney()
+    {
+        return money;
+    }
+
+    public void SetMoney(int amount)
+    {
+        money = amount;
+    }
 }

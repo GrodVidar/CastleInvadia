@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    CashFlow money;
     // Start is called before the first frame update
     void Start()
     {
-        
+        money = FindObjectOfType<CashFlow>();
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class GameState : MonoBehaviour
 
 	public void Retry()
 	{
-		Debug.Log("Retrying");
+        money.SetMoney(PlayerPrefs.GetInt("Money"));
 		Level level = FindObjectOfType<Level>();
 		level.ReloadLevel();
 	}

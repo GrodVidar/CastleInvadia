@@ -5,12 +5,14 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] Sprite closedDoor, openDoor;
+    CashFlow money;
     SpriteRenderer myRenderer;
     Player player;
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
+        money = FindObjectOfType<CashFlow>();
         player = FindObjectOfType<Player>();
     }
 
@@ -24,6 +26,7 @@ public class Door : MonoBehaviour
     {
         if(collision.tag == "Player" && Input.GetKeyDown("up") && player.GetHasDoorKey())
         {
+            PlayerPrefs.SetInt("Money", money.GetMoney());
             myRenderer.sprite = openDoor;
 			FindObjectOfType<Level>().LoadNextLevel();
         }
