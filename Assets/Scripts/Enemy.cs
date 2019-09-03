@@ -147,11 +147,7 @@ public class Enemy : MonoBehaviour
 					if(playerHealth.IsHurt() && ((int)Random.Range(2f, 6f) % 2 == 0))
 					{
 						SpitOutItem(item); 
-					}
-					else
-					{
-						break;
-					}
+					}					
 				}
 				else// if(item.name != "Heart")
 				{

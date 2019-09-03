@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     Transform gun;
     Weapon weapon;
 	Health health;
+	CashFlow cashDisplay;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
         weapon = FindObjectOfType<Weapon>();
         gun = gameObject.transform.GetChild(0);
 		inventory = FindObjectOfType<Inventory>();
+		cashDisplay = FindObjectOfType<CashFlow>();
         inventory.SetKeyUnAquired();
 		deathCanvas.SetActive(false);
     }
@@ -226,6 +228,10 @@ public class Player : MonoBehaviour
                 break;
 			case "Heart(Clone)":
 				AddHealth(25);
+				break;
+			case "Coin(Clone)":
+				Debug.Log("+5");
+				cashDisplay.AddMoney(5);
 				break;
             default:
                 Debug.Log("PickupItem() was called with no/no known item.");

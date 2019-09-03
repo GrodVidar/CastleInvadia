@@ -325,6 +325,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 929631303283668023, guid: ed7b60a1252ec5d4a9e2738e2e212b54,
+        type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 929631303283668023, guid: ed7b60a1252ec5d4a9e2738e2e212b54,
+        type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 415085208489379787, guid: 94ff77e7e0161404c928357829d838c9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b60a1252ec5d4a9e2738e2e212b54, type: 3}
 --- !u!1001 &400593911
@@ -18500,12 +18511,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2763785615562196339, guid: 65faec9b3bc0946448eff0593b7864b0,
+    - target: {fileID: 1584275703794887890, guid: 65faec9b3bc0946448eff0593b7864b0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 400593912}
-    - target: {fileID: 1584275703794887890, guid: 65faec9b3bc0946448eff0593b7864b0,
+    - target: {fileID: 2763785615562196339, guid: 65faec9b3bc0946448eff0593b7864b0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -18802,7 +18813,7 @@ PrefabInstance:
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.445957
+      value: -8.453785
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}

@@ -6318,16 +6318,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2763785615562196339, guid: 65faec9b3bc0946448eff0593b7864b0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1961211243}
-    - target: {fileID: 2763785615562196339, guid: 65faec9b3bc0946448eff0593b7864b0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
-      objectReference: {fileID: 0}
     - target: {fileID: 4747158007745255365, guid: 65faec9b3bc0946448eff0593b7864b0,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -6362,6 +6352,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763785615562196339, guid: 65faec9b3bc0946448eff0593b7864b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1961211243}
+    - target: {fileID: 2763785615562196339, guid: 65faec9b3bc0946448eff0593b7864b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65faec9b3bc0946448eff0593b7864b0, type: 3}
@@ -14394,9 +14394,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821651061632063928, guid: 47f62cc8ecb79ee41a40516232527fb7,
         type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821651061632063928, guid: 47f62cc8ecb79ee41a40516232527fb7,
+        type: 3}
       propertyPath: health
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 1821651061632063928, guid: 47f62cc8ecb79ee41a40516232527fb7,
+        type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 415085208489379787, guid: 94ff77e7e0161404c928357829d838c9,
+        type: 3}
     - target: {fileID: 1821651062778909295, guid: 47f62cc8ecb79ee41a40516232527fb7,
         type: 3}
       propertyPath: m_LocalPosition.y

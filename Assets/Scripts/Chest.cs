@@ -5,7 +5,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     [SerializeField] Sprite closed, open;
-    [SerializeField] GameObject item;
+    [SerializeField] GameObject[] items;
     SpriteRenderer myRenderer;
     bool activated = false;
     void Start()
@@ -38,7 +38,10 @@ public class Chest : MonoBehaviour
 
     private void SpitOutItem()
     {
-        Instantiate(item, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+		foreach(GameObject item in items)
+		{
+			Instantiate(item, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+		}
         //item.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-50f, 50f), Random.Range(50f, 59f));
     }
 
