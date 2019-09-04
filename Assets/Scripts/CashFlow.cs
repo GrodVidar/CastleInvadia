@@ -6,6 +6,7 @@ using TMPro;
 public class CashFlow : MonoBehaviour
 {
 	int money = 0;
+    const int max = 99;
 	TextMeshProUGUI text;
 
 	private void Start()
@@ -20,8 +21,32 @@ public class CashFlow : MonoBehaviour
 
 	public void AddMoney(int amount)
 	{
-		money += amount;
+        if((money + amount) < max)
+        {
+		    money += amount;
+        }
+        else
+        {
+            money = max;
+        }
 	}
+
+    public bool CheckMoney(int amount)
+    {
+        if(money >= amount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void SubMoney(int amount)
+    {
+        money -= amount;
+    }
 
     public int GetMoney()
     {
