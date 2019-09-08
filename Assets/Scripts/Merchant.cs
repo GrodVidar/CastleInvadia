@@ -5,6 +5,9 @@ using TMPro;
 
 public class Merchant : MonoBehaviour
 {
+    bool isTriggered = false;
+    bool inShop = false;
+    [SerializeField] GameObject store;
     [SerializeField] TextMeshPro text;
     Player player;
 
@@ -18,14 +21,33 @@ public class Merchant : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         text.text = "Yes, plenty of gear from me ol' cell mates 'ere";
-        if(Input.GetKeyDown("up"))
-        {
-            Debug.Log("Pause and open shop screen");
-        }
+        isTriggered = true;
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        isTriggered = false;
         text.text = "Farewell, Stranger!\nMay Lady Luck be on yer side!";
+    }
+
+    private void Update()
+    {
+        if(isTriggered && Input.GetKeyDown("up"))
+        {
+            Time.timeScale = 0f;
+            store.SetActive(true);
+            inShop = true;
+        }
+        if(inShop && Input.GetKeyDown("escape"))
+        {
+            ExitShop();
+        }
+    }
+
+    public void ExitShop()
+    {        
+            Time.timeScale = 1f;
+            store.SetActive(false);
     }
 }
