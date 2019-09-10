@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     bool hasBow = false;
     bool hasDoorKey = false;
     bool hasChestKey = false;
+    bool healed = false;
 
     //caches
     [SerializeField] GameObject damageDisplay;
@@ -212,7 +213,6 @@ public class Player : MonoBehaviour
 
     public void PickupItem(string item, int value = 0)
     {
-        Debug.Log("Picked up " + item);
         switch(item)
         {
             case "Bow(Clone)":
@@ -226,7 +226,10 @@ public class Player : MonoBehaviour
                 SetHasChestKey(true);
                 break;
 			case "Heart(Clone)":
-				AddHealth(25);
+                if(!healed)
+                {
+				    AddHealth(25);
+                }
 				break;
 			case "Coin(Clone)":
 				Debug.Log(value);
@@ -288,7 +291,14 @@ public class Player : MonoBehaviour
 	{
 		health.AddHealth(amount);
 		SpawnHealDisplay(amount);
+        StartCoroutine(Wait3ms());
 	}
+
+    private IEnumerator Wait3ms()
+    {
+        yield return new WaitForSeconds(0.3f);
+        healed = false;
+    }
 
 	private void ActivateDeathScreen()
 	{

@@ -7,17 +7,20 @@ public class Inventory : MonoBehaviour
 	//states
 	bool hasBow = false;
 	bool hasBomb = false;
+    bool bombDeactivated = true;
 
 	//caches
 	[SerializeField] GameObject[] weapons;
 	[SerializeField] GameObject[] backgrounds;
     [SerializeField] GameObject key;
+    Weapon weapon;
 
 	//variables
 	int bombs = 0;
 
     void Start()
     {
+        weapon = FindObjectOfType<Weapon>();
 		SetActiveWeapon(PlayerPrefs.GetInt("ActiveWeapon"));
     }
 
@@ -27,10 +30,16 @@ public class Inventory : MonoBehaviour
         if(bombs <= 0)
 		{
 			hasBomb = false;
+            if(!bombDeactivated)
+            {
+                weapon.ActivateStone();
+                bombDeactivated = true;
+            }
 		}
 		else
 		{
 			hasBomb = true;
+            bombDeactivated = false;
 		}
     }
 

@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
     CashFlow money;
     SpriteRenderer myRenderer;
     Player player;
+    bool inside = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +20,27 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.tag == "Player" && Input.GetKeyDown("up") && player.GetHasDoorKey())
+        if(inside && Input.GetKeyDown("up") && player.GetHasDoorKey())
         {
             PlayerPrefs.SetInt("Money", money.GetMoney());
             myRenderer.sprite = openDoor;
-			FindObjectOfType<Level>().LoadNextLevel();
+            FindObjectOfType<Level>().LoadNextLevel();
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            inside = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            inside = false;
+        }
+    }
 }

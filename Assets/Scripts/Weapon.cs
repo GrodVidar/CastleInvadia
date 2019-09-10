@@ -69,4 +69,11 @@ public class Weapon : MonoBehaviour
         projectile = projectiles[weapon];
 		PlayerPrefs.SetInt("ActiveWeapon", weapon);
     }
+
+    public void ActivateStone()
+    {
+        SetWeapon(0);
+        player.SetHasBow(false);
+        inventory.SetActiveWeapon(0);
+    }
 }
