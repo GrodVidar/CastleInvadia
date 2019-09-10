@@ -41,6 +41,13 @@ public class Weapon : MonoBehaviour
 			player.SetHasBow(true);
 			inventory.SetActiveWeapon(1);
 		}
+		else if (Input.GetKeyDown("3") && inventory.GethasBomb())
+		{
+			PlayerPrefs.SetInt("ActiveWeapon", 2);
+			SetWeapon(2);
+			player.SetHasBow(false);
+			inventory.SetActiveWeapon(2);
+		}
         if(player.GetCanShoot())
         {
             if(Input.GetButtonDown("Fire1"))

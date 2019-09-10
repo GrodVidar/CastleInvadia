@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
 	//states
 	bool hasBow = false;
+	bool hasBomb = true;
 
 	//caches
 	[SerializeField] GameObject[] weapons;
@@ -43,9 +44,26 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
+	public void SetBombAquired()
+	{
+		foreach (GameObject weapon in weapons)
+		{
+			if(weapon.name == "BombBG")
+			{
+				weapon.SetActive(true);
+				hasBomb = true;
+			}
+		}
+	}
+
 	public bool GethasBow()
 	{
 		return hasBow;
+	}
+
+	public bool GethasBomb()
+	{
+		return hasBomb;
 	}
 
 	public void SetActiveWeapon(int index)

@@ -233,6 +233,9 @@ public class Player : MonoBehaviour
 				Debug.Log(value);
 				cashDisplay.AddMoney(value);
 				break;
+			case "Bomb(Clone)":
+				inventory.SetBombAquired();
+				break;
             default:
                 Debug.Log("PickupItem() was called with no/no known item.");
                 break;
