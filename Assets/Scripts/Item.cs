@@ -33,7 +33,11 @@ public class Item : MonoBehaviour
             {
                 player.PickupItem(gameObject.name, value);
             }
-            else
+            else if(gameObject.name == "BombItem(Clone)")
+			{
+				player.PickupItem(gameObject.name);
+			}
+			else
             {
                 player.PickupItem(gameObject.name);
             }

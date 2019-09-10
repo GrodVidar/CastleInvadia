@@ -6,30 +6,32 @@ public class Inventory : MonoBehaviour
 {
 	//states
 	bool hasBow = false;
-	bool hasBomb = true;
+	bool hasBomb = false;
 
 	//caches
 	[SerializeField] GameObject[] weapons;
 	[SerializeField] GameObject[] backgrounds;
     [SerializeField] GameObject key;
-    // Start is called before the first frame update
+
+	//variables
+	int bombs = 0;
+
     void Start()
     {
 		SetActiveWeapon(PlayerPrefs.GetInt("ActiveWeapon"));
-  //     foreach(GameObject weapon in weapons)
-		//{
-		//	if(weapon.name != "StoneBG")
-		//	{
-		//		weapon.SetActive(false);
-		//	}
-		//}
-		//backgrounds[0].SetActive(true); // sets the Stone set to active in the beginning of each scene.
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(bombs <= 0)
+		{
+			hasBomb = false;
+		}
+		else
+		{
+			hasBomb = true;
+		}
     }
 
 	public void SetBowAquired()
@@ -51,7 +53,6 @@ public class Inventory : MonoBehaviour
 			if(weapon.name == "BombBG")
 			{
 				weapon.SetActive(true);
-				hasBomb = true;
 			}
 		}
 	}
@@ -64,6 +65,21 @@ public class Inventory : MonoBehaviour
 	public bool GethasBomb()
 	{
 		return hasBomb;
+	}
+
+	public int GetBombs()
+	{
+		return bombs;
+	}
+
+	public void AddBombs(int amount)
+	{
+		bombs += amount;
+	}
+
+	public void DecreaseBombs()
+	{
+		bombs--;
 	}
 
 	public void SetActiveWeapon(int index)

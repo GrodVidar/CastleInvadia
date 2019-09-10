@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+
     [SerializeField] GameObject explosion;
     // Start is called before the first frame update
 

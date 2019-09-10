@@ -161,7 +161,6 @@ public class Player : MonoBehaviour
 		ActivateDeathScreen();
         animator.SetTrigger("Dead");
         gameObject.layer = 14;
-		//Time.timeScale = 0f;
 		myRigidBody.velocity = new Vector2(0f, 0f);
     }
 
@@ -233,8 +232,9 @@ public class Player : MonoBehaviour
 				Debug.Log(value);
 				cashDisplay.AddMoney(value);
 				break;
-			case "Bomb(Clone)":
+			case "BombItem(Clone)":
 				inventory.SetBombAquired();
+				inventory.AddBombs(1);
 				break;
             default:
                 Debug.Log("PickupItem() was called with no/no known item.");

@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
     GameObject projectile;
     Player player;
 	Inventory inventory;
-
+	static bool hasBow = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,21 +29,18 @@ public class Weapon : MonoBehaviour
     {
 		if (Input.GetKeyDown("1"))
 		{
-			PlayerPrefs.SetInt("ActiveWeapon", 0);
 			SetWeapon(0);
 			player.SetHasBow(false);
 			inventory.SetActiveWeapon(0);
 		}
 		else if (Input.GetKeyDown("2") && inventory.GethasBow())
 		{
-			PlayerPrefs.SetInt("ActiveWeapon", 1);
 			SetWeapon(1);
 			player.SetHasBow(true);
 			inventory.SetActiveWeapon(1);
 		}
 		else if (Input.GetKeyDown("3") && inventory.GethasBomb())
 		{
-			PlayerPrefs.SetInt("ActiveWeapon", 2);
 			SetWeapon(2);
 			player.SetHasBow(false);
 			inventory.SetActiveWeapon(2);
@@ -61,10 +58,15 @@ public class Weapon : MonoBehaviour
     {
         var newShot = Instantiate(projectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         newShot.transform.parent = projectileParent.transform;
+		if(PlayerPrefs.GetInt("ActiveWeapon") == 2)
+		{
+			inventory.DecreaseBombs();
+		}
     }
 
     public void SetWeapon(int weapon)
     {
-        projectile = projectiles[weapon];        
+        projectile = projectiles[weapon];
+		PlayerPrefs.SetInt("ActiveWeapon", weapon);
     }
 }
