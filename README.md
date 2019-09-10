@@ -10,7 +10,7 @@ ctrl to shoot
 
 space to jump
 
-and 1-2(as of now) to swap weapons.
+and 1-9 to swap weapons.
 
 
 from now on I will upload a link to a video of gameplay-footage with every master-update with the current features in the game below:
