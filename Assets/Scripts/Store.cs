@@ -6,16 +6,20 @@ using TMPro;
 public class Store : MonoBehaviour
 {
     CashFlow money;
-    int price;
+    Inventory inventory;
+    [SerializeField]int price = 0;
+    [SerializeField] GameObject soldOutSign;
     TextMeshProUGUI text;
     Player player;
-    bool purchased = false;
+    bool keyPurchased = false;
+    bool activateSoldOut = false;
 
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
         money = FindObjectOfType<CashFlow>();
         player = FindObjectOfType<Player>();
+        inventory = FindObjectOfType<Inventory>();
     }
     void Start()
     {
@@ -30,6 +34,14 @@ public class Store : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameObject.name == "Bomb Price" && inventory.GetBombs() >= 5)
+        {
+            soldOutSign.SetActive(true);
+        }
+        else if(gameObject.name == "Bomb Price" && inventory.GetBombs() < 5)
+        {
+            soldOutSign.SetActive(false);
+        }
         
     }
 
@@ -46,13 +58,23 @@ public class Store : MonoBehaviour
     }
 
 
-    public void Purchase()
+    public void PurchaseKey()
     {
-        if(!purchased)
+        if(!keyPurchased && money.CheckMoney(price))
         {
             money.SubMoney(price);
-            purchased = true;
+            keyPurchased = true;
             Debug.Log("bought");
+            soldOutSign.SetActive(true);
+            GiveItem();
+        }
+    }
+
+    public void PuchaseBombs()
+    {
+        if(money.CheckMoney(price) && inventory.GetBombs() < 5)
+        {
+            money.SubMoney(price);
             GiveItem();
         }
     }
@@ -62,6 +84,10 @@ public class Store : MonoBehaviour
         if(gameObject.name == "Key Price")
         {
             player.PickupItem("Door Key(Clone)");
+        }
+        else if(gameObject.name == "Bomb Price")
+        {
+            player.PickupItem("BombItem(Clone)");
         }
     }
 }
