@@ -1527,7 +1527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &410840687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1564,7 +1564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 5
-  soldOutSign: {fileID: 0}
+  soldOutSign: {fileID: 138352507}
+  bombButton: {fileID: 410840686}
 --- !u!114 &410840689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8340,6 +8341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 0
   soldOutSign: {fileID: 30103100}
+  bombButton: {fileID: 410840686}
 --- !u!114 &1497805044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8586,6 +8588,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1497805043}
         m_MethodName: PurchaseKey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1497805043}
+        m_MethodName: KeyPurchased
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9033,6 +9046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 5
   soldOutSign: {fileID: 138352507}
+  bombButton: {fileID: 0}
 --- !u!114 &1777401130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9571,17 +9585,17 @@ PrefabInstance:
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.793295
+      value: -9.202417
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5796523
+      value: -1.3503046
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484337961105, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: orthographic size
-      value: 5.8
+      value: 6.03
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484153406848, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}

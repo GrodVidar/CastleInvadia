@@ -8,7 +8,7 @@ public class Store : MonoBehaviour
     CashFlow money;
     Inventory inventory;
     [SerializeField]int price = 0;
-    [SerializeField] GameObject soldOutSign;
+    [SerializeField] GameObject soldOutSign, bombButton;
     TextMeshProUGUI text;
     Player player;
     bool keyPurchased = false;
@@ -89,5 +89,10 @@ public class Store : MonoBehaviour
         {
             player.PickupItem("BombItem(Clone)");
         }
+    }
+
+    public void KeyPurchased()
+    {
+        bombButton.SetActive(true);
     }
 }
