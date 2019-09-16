@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Foreground
   - Projectile
+  - Breakable
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Projectile
   - Hazards
   - Dead
-  - 
+  - Breakable
   - 
   - 
   - 
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Hazards
     uniqueID: 855336857
+    locked: 0
+  - name: Breakable
+    uniqueID: 816180633
     locked: 0
   - name: Display
     uniqueID: 150682995
