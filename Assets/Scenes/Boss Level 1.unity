@@ -42047,6 +42047,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1246972937}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &895946502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895946503}
+  m_Layer: 11
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895946503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895946502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.564, y: -0.484, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1900168901}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &902537190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66063,6 +66093,8 @@ GameObject:
   - component: {fileID: 1900168899}
   - component: {fileID: 1900168898}
   - component: {fileID: 1900168897}
+  - component: {fileID: 1900168902}
+  - component: {fileID: 1900168903}
   m_Layer: 11
   m_Name: Orc
   m_TagString: Untagged
@@ -66116,8 +66148,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022640884, y: -0.13876963}
-  m_Size: {x: 0.84157693, y: 1.707778}
+  m_Offset: {x: -0.022640884, y: -0.110081196}
+  m_Size: {x: 0.84157693, y: 1.6504011}
   m_Direction: 0
 --- !u!212 &1900168900
 SpriteRenderer:
@@ -66178,10 +66210,56 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.38, y: -5.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 895946503}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1900168902
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900168896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6581048a7a5a70d4cbe76311e114ebb9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1900168903
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900168896}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.023524761, y: -0.9573462}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 3, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.537755, y: 0.08430338}
+  m_EdgeRadius: 0
 --- !u!1001 &1961211242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66617,7 +66695,7 @@ PrefabInstance:
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.101967
+      value: -37.685417
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
@@ -66632,7 +66710,7 @@ PrefabInstance:
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8067763
+      value: -2.576025
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484337961070, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
@@ -66642,7 +66720,7 @@ PrefabInstance:
     - target: {fileID: 3065218484337961105, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
       propertyPath: orthographic size
-      value: 5.8
+      value: 6.03
       objectReference: {fileID: 0}
     - target: {fileID: 3065218484153406848, guid: c12199023ffb6fd47b89274c537bf037,
         type: 3}
