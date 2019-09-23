@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class Orc : MonoBehaviour
 {
+	//Configs
+	float jumpVel = 10f;
 	//States
 	bool isFacingRight = true;
 	//Caches
 	Player player;
+	Rigidbody2D myRigidBody;
     BoxCollider2D feet;
     // Start is called before the first frame update
     void Start()
     {
 		player = FindObjectOfType<Player>();
         feet = GetComponent<BoxCollider2D>();
+		myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         LookAtPlayer();
-
+		InvokeRepeating("Jump", 0, 8);
+		
     }
 
     private void LookAtPlayer()
@@ -44,10 +49,15 @@ public class Orc : MonoBehaviour
 
     private void Jump()
     {
-        if(feet.IsTouchingLayers(LayerMask.GetMask("Groud")))
+		bool isTouchingGround = feet.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        Vector2 JumpVelocity = new Vector2(0f, jumpVel);
+        if(!isTouchingGround)
         {
-            Vector2 JumpVelocity = new Vector2(0f, jumpVel);
             myRigidBody.velocity += JumpVelocity;
         }
+		else
+		{
+			myRigidBody.velocity -= JumpVelocity;
+		}
     }
 }
