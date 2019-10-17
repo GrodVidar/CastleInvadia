@@ -8,6 +8,7 @@ TagManager:
   - Foreground
   - Projectile
   - Breakable
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Hazards
   - Dead
   - Breakable
-  - 
+  - EnemyProjectile
   - 
   - 
   - 

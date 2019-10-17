@@ -64,7 +64,7 @@ public class Weapon : MonoBehaviour
 		}
     }
 
-    public void SetWeapon(int weapon)
+        public void SetWeapon(int weapon)
     {
         projectile = projectiles[weapon];
 		PlayerPrefs.SetInt("ActiveWeapon", weapon);

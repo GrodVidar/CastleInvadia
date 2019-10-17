@@ -78,8 +78,9 @@ public class Enemy : MonoBehaviour
             waypointIndex++;
             
             if (waypointIndex == waypoints.Length)
-            
-            waypointIndex = 0;
+            {
+                waypointIndex = 0;
+            }
         }        
     }
         //Flips the object on the X-Axis
