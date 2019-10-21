@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2412619432117404262}
   - component: {fileID: 5898774996427740159}
   - component: {fileID: 5461822402756014756}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Door Key
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -781451899
-  m_SortingLayer: 2
+  m_SortingLayerID: 724596417
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 30c9149efec2276479eb090cee252678, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 5944848111789567739}
   - component: {fileID: 5757735569179335853}
   - component: {fileID: 6917041069543538822}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Door Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}

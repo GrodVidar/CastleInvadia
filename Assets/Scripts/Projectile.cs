@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     Player player;
     [SerializeField] float speed = 20f, heightMin = 5f, heightMax = 9f;
     [SerializeField] int dmg = 10;
+    bool lethal = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,20 +33,24 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy" && gameObject.name != "Bomb(Clone)")
+        if(collision.gameObject.tag == "Enemy" && gameObject.name != "Bomb(Clone)" && lethal)
         {
             collision.gameObject.GetComponent<Enemy>().ReceiveDamage(dmg);
             Destroy(gameObject);
         }
         else
         {
+            if(gameObject.name == "Arrow(Clone)")
+            {
+                lethal = false;
+            }
             StartCoroutine(LetItDie());
         }
     }
 
     private IEnumerator LetItDie()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }

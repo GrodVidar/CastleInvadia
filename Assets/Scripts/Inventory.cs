@@ -16,10 +16,10 @@ public class Inventory : MonoBehaviour
     Weapon weapon;
 
 	//variables
-	int bombs = 0;
+	static int bombs = 0;
 
     void Start()
-    {
+    {        
         weapon = FindObjectOfType<Weapon>();
 		SetActiveWeapon(PlayerPrefs.GetInt("ActiveWeapon"));
     }

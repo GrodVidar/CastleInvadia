@@ -57,14 +57,14 @@ public class EnemyProjectile : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Player" && isLethal)
         {
-            player.ReceiveDamage(10, isGoingLeft);
+            player.ReceiveDamage(10, !isGoingLeft);
             Destroy(gameObject);
         }
     }
 
     private IEnumerator LetItDie()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
 

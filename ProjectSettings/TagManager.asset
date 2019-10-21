@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Breakable
   - EnemyProjectile
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Dead
   - Breakable
   - EnemyProjectile
-  - 
+  - Item
   - 
   - 
   - 
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2576669703
+    locked: 0
+  - name: Items
+    uniqueID: 724596417
     locked: 0
   - name: Hazards
     uniqueID: 855336857

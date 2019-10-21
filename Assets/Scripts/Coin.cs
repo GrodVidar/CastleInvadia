@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     int value;
     Animator animator;
+    [SerializeField] AudioClip clip;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,5 +36,10 @@ public class Coin : MonoBehaviour
     public int GetValue()
     {
         return value;
+    }
+
+    public void PlaySound()
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position);
     }
 }

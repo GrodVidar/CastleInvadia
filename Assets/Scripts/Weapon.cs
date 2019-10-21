@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("ActiveWeapon: " + projectile.name);
 		if (Input.GetKeyDown("1"))
 		{
 			SetWeapon(0);
@@ -56,7 +57,9 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
+        projectile = projectiles[PlayerPrefs.GetInt("ActiveWeapon")];
         var newShot = Instantiate(projectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+        Debug.Log("2Instantiated: " + projectile.name);
         newShot.transform.parent = projectileParent.transform;
 		if(PlayerPrefs.GetInt("ActiveWeapon") == 2)
 		{
@@ -64,14 +67,16 @@ public class Weapon : MonoBehaviour
 		}
     }
 
-        public void SetWeapon(int weapon)
+    private void SetWeapon(int weapon)
     {
-        projectile = projectiles[weapon];
 		PlayerPrefs.SetInt("ActiveWeapon", weapon);
+        projectile = projectiles[weapon];
+        Debug.Log("activating: " + projectile.name);
     }
 
     public void ActivateStone()
     {
+        Debug.Log("Setting to stone");
         SetWeapon(0);
         player.SetHasBow(false);
         inventory.SetActiveWeapon(0);

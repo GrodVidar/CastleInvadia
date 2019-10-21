@@ -31,6 +31,7 @@ public class Item : MonoBehaviour
         {
             if(gameObject.name == "Coin(Clone)")
             {
+                coin.PlaySound();
                 player.PickupItem(gameObject.name, value);
             }
             else if(gameObject.name == "BombItem(Clone)")

@@ -210,6 +210,8 @@ MonoBehaviour:
   healDisplay: {fileID: 6782422468382787530, guid: 77c19252b17a02942a726125f3a7ddd5,
     type: 3}
   deathCanvas: {fileID: 0}
+  heartSound: {fileID: 8300000, guid: 0dd40a94d0089984da15bedf2862f5b1, type: 3}
+  keySound: {fileID: 8300000, guid: 5839134577b2df343b3deecbb35bb240, type: 3}
 --- !u!61 &2043302596
 BoxCollider2D:
   m_ObjectHideFlags: 0

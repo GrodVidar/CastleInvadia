@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject damageDisplay;
     [SerializeField] GameObject healDisplay;
 	[SerializeField] GameObject deathCanvas;
+    [SerializeField] AudioClip heartSound, keySound;
 	Inventory inventory;
     CapsuleCollider2D myCollider;
     BoxCollider2D feet;
@@ -219,15 +220,18 @@ public class Player : MonoBehaviour
 				inventory.SetBowAquired();
                 break;
             case "Door Key(Clone)":
+                AudioSource.PlayClipAtPoint(keySound, transform.position);
                 SetHasDoorKey(true);
                 inventory.SetKeyAquired();
                 break;
             case "Chest Key(Clone)":
+                AudioSource.PlayClipAtPoint(keySound, transform.position);
                 SetHasChestKey(true);
                 break;
 			case "Heart(Clone)":
                 if(!healed)
                 {
+                    AudioSource.PlayClipAtPoint(heartSound, transform.position);
 				    AddHealth(25);
                 }
 				break;

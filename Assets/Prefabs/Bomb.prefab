@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 4857028125061972525, guid: cc4e702778fe7aa49b8e03254a6d23a3,
     type: 3}
+  sound: {fileID: 8300000, guid: 6803b5e1a1fa2b74bac7902735afd98f, type: 3}
 --- !u!58 &3675633507487288582
 CircleCollider2D:
   m_ObjectHideFlags: 0
